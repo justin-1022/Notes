@@ -72,7 +72,7 @@ public class NoteActivity extends AppCompatActivity {
                 String tempOut = "";
 
                 while (scanIt.hasNextLine()){
-                    tempOut = tempOut + scanIt.nextLine(;
+                    tempOut = tempOut + scanIt.nextLine();
 
                 }
 

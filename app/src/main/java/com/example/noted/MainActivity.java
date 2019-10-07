@@ -1,16 +1,18 @@
 package com.example.noted;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,5 +53,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void createNote(){
+        String noteTitle = "@string/default_title";
+        int counter = 0;
+
+        while (fileExists(noteTitle + "(" + String.valueOf(counter) +  ").txt")) {
+            counter += 1;
+        }
+
+        noteTitle = noteTitle + "(" + String.valueOf(counter) + ")";
+
+        Intent toNoteScreen = new Intent(MainActivity.this, NoteActivity.class);
+
+
+
+    }
+
+    public boolean fileExists(String fileName){
+        File file = getBaseContext().getFileStreamPath(fileName);
+        return file.exists();
     }
 }
