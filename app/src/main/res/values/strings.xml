@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Noted</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="note_hint">Your note here...</string>
+    <string name="title_hint">Your title here...</string>
 </resources>
