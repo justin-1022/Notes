@@ -4,5 +4,4 @@
     <string name="title_activity_note">NoteActivity</string>
     <string name="note_hint">Your note here...</string>
     <string name="title_hint">Your title here...</string>
-    <string name="default_title">Untitled</string>
 </resources>

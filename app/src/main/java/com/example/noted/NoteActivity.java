@@ -24,10 +24,11 @@ public class NoteActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         FloatingActionButton fab = findViewById(R.id.fab);
+        String noteTitleText = getIntent().getStringExtra("noteTitle");
 
-        final EditText noteTitle = (EditText)findViewById(R.id.noteTitle);
+        final EditText noteTitle = findViewById(R.id.noteTitle);
+        noteTitle.setText(noteTitleText);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +38,9 @@ public class NoteActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
     public void saveFile(String fileName) {
-        EditText noteContent = (EditText)findViewById(R.id.noteBody);
+        EditText noteContent = findViewById(R.id.noteBody);
         if (!fileExists(fileName)) {
             try {
                 OutputStreamWriter out = new OutputStreamWriter(openFileOutput(fileName, 0));
@@ -90,6 +92,10 @@ public class NoteActivity extends AppCompatActivity {
     public boolean fileExists(String fileName){
         File file = getBaseContext().getFileStreamPath(fileName);
         return file.exists();
+    }
+
+    public void onSubmit(View v){
+        this.finish();
     }
 
 
